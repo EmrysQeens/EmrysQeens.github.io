@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Happy Birthday</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial_scale=1.0"/>
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden_dev.js"></script>
+    <script type="text/javascript" src="js/functions_dev.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<center><img src="neon.jpg" height="750px" width="device-width" border-radius="15px"/> <img src="neon2.jpg" height="750px" width="device-width"/></center>
+		<div id="content">
+			<div id="code">
+				<span class="comments">Happy Birthday..<h1>"Neon"</h1>...</span><br />
+				<span class="space"/><span class="comments">Today, the 12th day of May, is the birthday of a great queen.</span><br />
+				<span class="space"/><span class="comments"> So I created a page to celebrate this extraordinary day for you.</span><br />
+				<span class="space"/><span class="comments"></span><br />
+				<span class="keyword">May 12th</span>(<span class="string">"Edward Omotola"</span>);<br />
+				<span class="comments">// May 12th, when the bell rang, your age increased </span><br />
+				May God bless you.. my all good wishes and thoughts are with you.<span class="keyword"><br/></span>  Have a very special day. Happy Birthday!! <br />
+				May your coming year come with a plenty of thousands of happiness,reasons and sweet memories.<span class="keyword"> Happy Birthday dear!!</span> <span class="string">Your blessings shall have no bounds.</span><br /><br />
+				<span class="string">Blessed be your day.</span></br>
+				</br>
+				</br>
+				<span class="comments">Blessing will be with you simultaneously.</span><br />
+				<span class="keyword"></span><br /></br>
+				<span class="comments"> Forever and ever shall you blossom.</span><br />
+			</br>
+				<span class="comments"></span><br />
+				Fortune,Success,Wisdom .........</br>
+				<span class="comments">happiness</span><br />
+				</br>
+			    <span class="comments">and everything you wish shall be granted to you.</span><br />
+				</br>
+				<span class="comments">The last thing I wanna say, boring and ordinary, is:</span><br />
+				<span class="string"><h1>"Happy Birthday !"</h1>
+					<h1>Love You......</h1></span>
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+					</br>
+					</br>
+					</br>
+					</br>
+					</div>
+					<div id="loveu">
+						May you have a life-time full of happiness.<br/>
+						<div class="signature">- Emrys.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			<h2>Emrys Qeens</h2>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(1997,7, 9);
+		together.setHours(8);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
