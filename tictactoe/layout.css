@@ -1,0 +1,62 @@
+h2
+{
+	color:teal;
+	font-family: segoe print;
+}
+
+
+
+button
+{
+	width:60px;
+	height: 60px;
+	background: grey;
+	border:none;
+	border-radius: 7px;	
+	outline: none;
+	font-family: segoe print;
+	font-size: 30px;
+	margin: 10px;
+	position:relative;
+	vertical-align: top;
+}
+
+body
+{
+	user-select: none;
+}
+
+div
+{
+	position:static;
+}
+
+@keyframes anim
+{
+
+}
+
+button:hover{
+	background:teal;
+}
+h2:hover
+{
+	color:green;
+}
+
+#cont
+{
+	align: center;
+	border :5px dashed #6B7A8F;
+	background: #DCC7AA;
+	width: 300px;
+	border-radius: 5px 20px 5px 20px;
+}
+span{
+	margin:15px;
+	font-family:segoe print;
+	color: teal;
+	font-size:ssmall;
+}
+
+
