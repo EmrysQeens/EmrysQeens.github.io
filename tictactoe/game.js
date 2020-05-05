@@ -21,6 +21,7 @@ function on_event(param)
       nc=computer(btn_values,"O");
       num= nc==9 && np==9 ? play() : (nc==9) ? np : nc ; 
       document.getElementsByTagName("button")[num].innerHTML="O";
+      document.getElementsByTagName("button")[num].value="O";
       btn_values[num]="O";
       win()
       alert(count_);
