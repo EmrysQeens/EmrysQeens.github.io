@@ -1,7 +1,13 @@
+@font-face
+{
+	font-family: segoep;
+	src:url(segoeprb.ttf);
+}
+
 h2
 {
 	color:teal;
-	font-family: segoe print;
+	font-family: segoep;
 }
 
 
@@ -14,26 +20,11 @@ button
 	border:none;
 	border-radius: 7px;	
 	outline: none;
-	font-family: segoe print;
+	font-family: segoep;
 	font-size: 30px;
 	margin: 10px;
 	position:relative;
 	vertical-align: top;
-}
-
-body
-{
-	user-select: none;
-}
-
-div
-{
-	position:static;
-}
-
-@keyframes anim
-{
-
 }
 
 button:hover{
@@ -47,16 +38,45 @@ h2:hover
 #cont
 {
 	align: center;
-	border :5px dashed #6B7A8F;
-	background: #DCC7AA;
+	border :5px solid teal;
+	background: cyan;
+	background-image: linear-gradient(to right,cyan,aquamarine,turquoise,cadetblue,teal,lightskyblue);
 	width: 300px;
 	border-radius: 5px 20px 5px 20px;
 }
 span{
 	margin:15px;
-	font-family:segoe print;
+	font-family:segoep;
 	color: teal;
 	font-size:ssmall;
+}
+
+#line
+{
+    position:relative;
+    animation: anims ;
+    animation-duration: 20s;
+    animation-delay: 1s;
+    background-color:teal;
+    height: 10px;
+    border:none;
+    border-radius:5px;
+    width:56%;
+    animation-iteration-count: infinite;
+}
+
+@keyframes anims
+{
+        0%{width:56%;  background-color:teal;}
+        12.5%{width:42%;  background-color:cyan;}
+        24.5%{width:28%;  background-color:lightskyblue;}
+        37%{ width:14%;  background-color:green;}
+        49.5%{width:0%;   background-color:yellow;}
+        62%{width:14%;   background-color:green;}
+        74.5%{width:28%;   background-color:lightskyblue;}
+        87%{width:42%;   background-color:cyan;}
+        100%{width:56%;   background-color:teal;}
+
 }
 
 

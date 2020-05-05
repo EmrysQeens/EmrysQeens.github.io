@@ -139,3 +139,18 @@ function win()
   }
   
 }
+
+
+header="Tic-Tac-Toe";
+colors=["red","orange","yellow","green","blue","indigo","violet","cyan","pink","purple","magenta","teal"];
+itr=0;
+
+function textcount(){
+    setInterval(
+      function()
+      {
+        document.getElementById("hd").innerHTML=header.substr(0,++itr);
+        document.getElementById("hd").style.color=colors[itr];
+        itr=(itr==11) ? 0 : itr;
+      },1000);
+}

@@ -7,12 +7,13 @@
 	<script src="game.js"></script>
 	<link rel="stylesheet" type="text/css"href="layout.css">
 </head>
-<body>
+<body onload="textcount();" bgcolor="black">
 <div align="center">
 <div id="cont" align="center">
-		<header id="hd">
-			<h2>Tic Tac Toe</h2>
+		<header>
+			<h2 id="hd">Tic Tac Toe</h2>
 		</header>
+		<hr id="line"/>
 		<div>
 			<button value="0" onclick="on_event(this);"></button>
 			<button value="1" onclick="on_event(this);"></button>
