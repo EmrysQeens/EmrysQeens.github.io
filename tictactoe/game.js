@@ -14,14 +14,18 @@ function on_event(param)
     param.value = "X";
 		param.innerHTML = "X";
     count++;
-    win();
-    if(count==5) reset();
-    np=computer(btn_values,"X");
-    nc=computer(btn_values,"O");
-    num= nc==9 && np==9 ? play() : (nc==9) ? np : nc ; 
-    document.getElementsByTagName("button")[num].innerHTML="O";
-    btn_values[num]="O";
-    win();
+    setTimeout( function(){
+      win();
+      if(count==5) reset();
+      np=computer(btn_values,"X");
+      nc=computer(btn_values,"O");
+      num= nc==9 && np==9 ? play() : (nc==9) ? np : nc ; 
+      document.getElementsByTagName("button")[num].innerHTML="O";
+      btn_values[num]="O";
+      win()
+      alert(count_);
+      if(count_==9) reset();
+    },(1500));
 	}	
 }
 
@@ -111,10 +115,12 @@ function forwin(vals)
 function reset()
 {
   btn_values=["a","b","c","d","e","f","g","h","i"];
+  count==0;
   for(i=0;i<9;i++)
   {
     document.getElementsByTagName("button")[i].innerHTML="";
     document.getElementsByTagName("button")[i].style.background="grey";
+    document.getElementsByTagName("button")[i].value=i;
   }
 }
 
