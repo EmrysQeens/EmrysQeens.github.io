@@ -3,32 +3,8 @@ let cases=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 let count=0;
 winx=0;
 wino=0;
-
-//is called when player clicks a button.
-function on_event(param)
-{
-	if(fun(param))
-	{
-		param.style.background = "teal";
-		btn_values[param.value] = "X";
-    param.value = "X";
-		param.innerHTML = "X";
-    count++;
-    setTimeout( function(){
-      win();
-      if(count==5) reset();
-      np=computer(btn_values,"X");
-      nc=computer(btn_values,"O");
-      num= nc==9 && np==9 ? play() : (nc==9) ? np : nc ; 
-      document.getElementsByTagName("button")[num].innerHTML="O";
-      document.getElementsByTagName("button")[num].value="O";
-      btn_values[num]="O";
-      win()
-      alert(count_);
-      if(count_==9) reset();
-    },(1500));
-	}	
-}
+pc="";
+cc="";
 
 //returns true if two out three params are same and matches a given character.
 function ifTwoSame(a,b,c,d)
@@ -76,7 +52,7 @@ function computer(vbtns,ch)
 //returns a boolean value if paramter is one and not equals to "X" and "O".
 function fun(param,...btn)
 {
-  return (arguments.length==1)?(param.value!="X" && param.value!="O") : (param!="X" && param!="O");
+  return (arguments.length==1)?(param.value!=pc && param.value!=cc) : (param!=pc && param!=cc);
 }
 
 //returns a random number between 0 to 8
@@ -116,23 +92,24 @@ function forwin(vals)
 function reset()
 {
   btn_values=["a","b","c","d","e","f","g","h","i"];
-  count==0;
+  count=0;
   for(i=0;i<9;i++)
   {
-    document.getElementsByTagName("button")[i].innerHTML="";
-    document.getElementsByTagName("button")[i].style.background="grey";
-    document.getElementsByTagName("button")[i].value=i;
+    cont=document.getElementById("cont");
+    cont.getElementsByTagName("button")[i].innerHTML="";
+    cont.getElementsByTagName("button")[i].style.background="grey";
+    cont.getElementsByTagName("button")[i].value=i;
   }
 }
 
 function win()
 {
-  if(forwin(btn_values)=="X")
+  if(forwin(btn_values)==pc)
   {
     document.getElementById("player").innerHTML="Player : "+ ++winx;
     reset();
   }
-  else if(forwin(btn_values)=="O")
+  else if(forwin(btn_values)==cc)
   {
     document.getElementById("computer").innerHTML="Computer : "+ ++wino;
     reset();
@@ -153,4 +130,37 @@ function textcount(){
         document.getElementById("hd").style.color=colors[itr];
         itr=(itr==11) ? 0 : itr;
       },1000);
+}
+
+//is called when player clicks a button.
+function on_event(param)
+{
+  if(fun(param))
+  {
+    cont=document.getElementById("cont");
+    param.style.background = "teal";
+    btn_values[param.value] = pc;
+    param.value = pc;
+    param.innerHTML = pc;
+    count++;
+    setTimeout( function(){
+      win();
+      if(count==5) reset();
+      np=computer(btn_values,pc);
+      nc=computer(btn_values,cc);
+      num= nc==9 && np==9 ? play() : (nc==9) ? np : nc ; 
+      cont.getElementsByTagName("button")[num].innerHTML=cc;
+      cont.getElementsByTagName("button")[num].value=cc;
+      btn_values[num]=cc;
+      win();
+    },(1500));
+  } 
+}
+
+function on_select(param)
+{
+  pc=param.value;
+  cc=(pc=="X") ? "O" : "X";
+  document.getElementById("ale").style.display="none";
+  document.getElementById("cont").style.display="block";
 }

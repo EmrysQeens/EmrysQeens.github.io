@@ -35,9 +35,19 @@ h2:hover
 	color:green;
 }
 
+#ale
+{
+	border :5px;
+	background: cyan;
+	background-image: linear-gradient(to right,cyan,aquamarine,turquoise,cadetblue,teal,lightskyblue);
+	width: 300px;
+	border-radius: 10px 20px 10px 20px;
+	margin-top: 200px;
+}
+
 #cont
 {
-	align: center;
+	display: none;
 	border :5px solid teal;
 	background: cyan;
 	background-image: linear-gradient(to right,cyan,aquamarine,turquoise,cadetblue,teal,lightskyblue);
