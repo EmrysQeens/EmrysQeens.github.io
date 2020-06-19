@@ -41,8 +41,7 @@ pc="";
 cc="";
 p=0;
 c=0;
-noP=0;
-noC=0;
+noC=0; noP=0;
 
 //Returns a boolean if two values are same and matches testcase "d". 
 twoSame=(x,d)=>{return (x[0]==d && (x[0]==x[1] || x[0]==x[2]) && x[1]!=x[2]) ||(x[1]==d && (x[1]==x[0] || x[1]==x[2]) && x[0]!=x[2]) || (x[2]==d && (x[2]==x[1] || x[2]==x[0]) && x[1]!=x[0]) ;}
@@ -60,7 +59,7 @@ val=(test)=>{return [btn_vals[test[0]],btn_vals[test[1]],btn_vals[test[2]]];}
 reset=()=>
 {
   btn_vals=["a","b","c","d","e","f","g","h","i"];
-  noP==0; noC==0;
+  noP=0; noC=0;
   for(i=0;i<9;i++)
   {
     cont=document.getElementById("cont");
@@ -125,6 +124,8 @@ player=(param)=>
   btn_vals[param.value]=pc;
   param.style.background = "#e53935";
   ++noP;
+  setTimeout(won,500);
+  setTimeout(()=>{if(noP==5) reset();},750);
 }
 
 computer=()=>
@@ -136,6 +137,8 @@ computer=()=>
   cont.getElementsByTagName("button")[comput].value=cc;
   btn_vals[comput]=cc;
   ++noC;
+  setTimeout(won,1500);
+  setTimeout(()=>{if(noC==5) reset();},1250);
 }
 
 on_event=(param)=>
@@ -143,10 +146,7 @@ on_event=(param)=>
   if(param.innerHTML!="X" && param.innerHTML!="O")
   {
     player(param);
-    setTimeout(won,500);
     setTimeout(computer,1000);
-    setTimeout(won,1500);
-    //if(noP==5 || noC==5) reset();
   }
 }
 
