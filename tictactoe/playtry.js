@@ -42,6 +42,7 @@ cc="";
 p=0;
 c=0;
 noC=0; noP=0;
+wait=false;
 
 //Returns a boolean if two values are same and matches testcase "d". 
 twoSame=(x,d)=>{return (x[0]==d && (x[0]==x[1] || x[0]==x[2]) && x[1]!=x[2]) ||(x[1]==d && (x[1]==x[0] || x[1]==x[2]) && x[0]!=x[2]) || (x[2]==d && (x[2]==x[1] || x[2]==x[0]) && x[1]!=x[0]) ;}
@@ -120,6 +121,7 @@ won=()=>
     
 player=(param)=>
 {
+  wait=true;
   param.innerHTML=pc;
   btn_vals[param.value]=pc;
   param.style.background = "#e53935";
@@ -138,12 +140,13 @@ computer=()=>
   btn_vals[comput]=cc;
   ++noC;
   setTimeout(won,1500);
-  setTimeout(()=>{if(noC==5) reset();},1250);
+  setTimeout(()=>{if(noC==5) reset(); wait=false;},1250);
+
 }
 
 on_event=(param)=>
 {
-  if(param.innerHTML!="X" && param.innerHTML!="O")
+  if(param.innerHTML!="X" && param.innerHTML!="O" && wait==false)
   {
     player(param);
     setTimeout(computer,1000);
